@@ -1,0 +1,2 @@
+keepon_gazing:libuvc_ros-master/libuvc_camera:libuvc_ros-master/libuvc_ros
+-G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/david/keepon_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/david/keepon_ws/install_isolated

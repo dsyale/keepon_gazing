@@ -1,0 +1,8 @@
+prefix=/home/david/keepon_ws/devel
+
+Name: xmlrpcpp
+Description: Description of xmlrpcpp
+Version: 1.14.3
+Cflags: -I/home/david/keepon_ws/src/ros_comm-melodic-devel/utilities/xmlrpcpp/include
+Libs: -L/home/david/keepon_ws/devel/lib -lxmlrpcpp
+Requires: cpp_common rostime

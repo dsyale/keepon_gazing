@@ -1,0 +1,8 @@
+prefix=/home/david/keepon_ws/devel
+
+Name: keepon_gazing
+Description: Description of keepon_gazing
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/david/keepon_ws/devel/lib 
+Requires: 

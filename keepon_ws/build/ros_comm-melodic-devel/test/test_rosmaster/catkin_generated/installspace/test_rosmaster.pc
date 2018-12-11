@@ -1,0 +1,8 @@
+prefix=/home/david/keepon_ws/install
+
+Name: test_rosmaster
+Description: Description of test_rosmaster
+Version: 1.14.3
+Cflags: -I/home/david/keepon_ws/install/include
+Libs: -L/home/david/keepon_ws/install/lib 
+Requires: 

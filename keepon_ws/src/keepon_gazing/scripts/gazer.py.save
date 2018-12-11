@@ -1,0 +1,90 @@
+#!/usr/bin/env python
+
+
+import rospy
+import random
+import serial
+from std_msgs.msg import String
+
+SLIGHT_MIN = 5
+SLIGHT_MAX = 30
+CONDITION = 1
+KPORT1 = '/dev/ttyUSB2'
+KPORT2 = '/dev/ttyUSB3'
+KPORT3 = '/dev/ttyUSB4'
+FOLDER_ID ='12qzzgRpqDpNeDhVWWTxxhPLenUd2Xp_S'
+CHECKNAME_1 = '0check.png'
+CHECKNAME_2 = '0check.png'
+
+def slight(f):
+# takes in a number from 0 to 180 and randomly 
+# changes it by SLIGHT_MIN to SLIGHT_MAX in either direction
+	if f == 180:
+		direction = 0
+	elif f == 0:
+		direction = 1
+	else:
+		direction = (int)(2*random.random())
+	
+	increment = SLIGHT_MIN + (int)((SLIGHT_MAX-SLIGHT_MIN)*random.random())
+	if direction == 0:
+		# decrease value
+		return max(0, f - increment)
+	else:
+		return min(180, f + increment)
+
+
+def idle(f1,f2,f3):
+	# give three new slightly adjusted positions:
+	return (slight(f1),slight(f2),slight(f3))
+
+def move_keepon(ser, n1, n2, n3)
+	s = '%03d' % n1
+	s += '%03d' % n2
+	s += '%03d' % n3
+	s += '00' 
+	ser.write(s)
+
+def drive_check(checkname):
+    store = file.Storage('token.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store)
+    service = build('drive', 'v3', http=creds.authorize(Http()))
+
+    # Call the Drive v3 API
+    results = service.files().list(
+        q="'" + FOLDER_ID + "' in parents", pageSize=10, fields="nextPageToken, files(id, name)").execute()
+    items = results.get('files', [])
+
+    if not items:
+        return 0
+    else:
+        for item in items:
+            if item['name'] == checkname:
+		return 1
+	return 0
+
+
+
+def gazer():
+	pub = rospy.Publisher("chatter", String, queue_size=10)
+	rospy.init_node("gazer", anonymous=True)
+	rate = rospy.Rate(5) # 5hz
+	
+	while not rospy.is_shutdown():
+
+		if CONDITION == 1:
+		
+
+		time.sleep()
+
+		rate.sleep()
+
+
+if __name__ == '__main__':
+	try:
+		gazer()
+	except rospy.ROSInterruptException:
+		pass

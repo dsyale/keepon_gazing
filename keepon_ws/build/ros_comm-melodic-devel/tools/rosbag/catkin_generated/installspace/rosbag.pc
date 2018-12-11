@@ -1,0 +1,8 @@
+prefix=/home/david/keepon_ws/install
+
+Name: rosbag
+Description: Description of rosbag
+Version: 1.14.3
+Cflags: -I/home/david/keepon_ws/install/include
+Libs: -L/home/david/keepon_ws/install/lib -lrosbag
+Requires: rosbag_storage rosconsole roscpp std_srvs topic_tools xmlrpcpp

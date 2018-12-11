@@ -1,0 +1,9 @@
+<launch>
+  <arg name="path" default="/home/david/keepon_ws/" />
+  <arg name="file" default="rosrecord2" />
+  <node pkg="rosbag" type="play" name="rosbag" required="true" args="$(arg path)$(arg file).bag"/>
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" required="true" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/camera/image_raw"/>
+    <param name="sec_per_frame" value="0.0333"/>
+  </node>
+</launch>
