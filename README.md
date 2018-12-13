@@ -10,6 +10,4 @@ The keepon_gazing package was created to house both the video export functionali
 
 'r_scripts' contains the R scripts used to analyze the preliminary data as well as an explanation of how the data was organized before running the scripts.
 
-An overview of the installation and setup procedure can be found in 'instructions.md'
-
 An overview of the experimental protocol as well as instructions for carrying out the experiment can be found in 'protocol.pdf'. This includes an explanation of the functionality of 'gazer.py', which carries out the bulk of the experiment autonomously.
