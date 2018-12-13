@@ -27,42 +27,4 @@ cd test
 
 ffmpeg -framerate 20 -i frame%04d.jpg -c:v libx264 -profile:v high -crf 20 -pix_fmt yuv420p output.mp4
 
-copy paste output.mp4 out and rename.
-empty test by deleting frame images
-
-
------
-
-rospy main node:
-
-global variable for which condition you are doing. this will affect 
-'keep idling' and 'make keepon look' functions.
-check = 0
-while check <2
-
-if not drive(check):
-sends idle keepon commands.
-keep idling.
-
-else:
-check +=1
-log keepon looktime in some bag
-send keepon look commands
-record rosbag(check) (30s)
-[close rosbag]
-
-
-functions:
-drive(check)
-keep idling (time wait 3-6s)
-record rosbag
-log keepon looktime
-make keepon look.
-
-ALSO:
-
-go polish the actual surveys and make the pre and post surveys.
-
-write all of this. then go to sleep. then wake up at around 5. 
-and go to lab and make it all work.
 
